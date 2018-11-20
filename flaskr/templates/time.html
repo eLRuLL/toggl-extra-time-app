@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>{{ title }} - Microblog</title>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>ENTRY ID</th>
+                <th>ENTRY DESCRIPTION</th>
+                <th>USER ID</th>
+                <th>CLIENT ID</th>
+                <th>PROJECT ID</th>
+                <th>DURATION (hours)</th>
+                <th>MONTH</th>
+            </tr>
+            {% for entry in entries %}
+            <tr>
+                <td>{{entry.time_entry}}</td>
+                <td>{{entry.time_entry_description}}</td>
+                <td>{{entry.user}}</td>
+                <td>{{entry.client}}</td>
+                <td>{{entry.project}}</td>
+                <td>{{ (entry.time_entry_duration/3600) | int }}</td>
+                <td>{{entry.time_entry_start_time.strftime('%B')}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
